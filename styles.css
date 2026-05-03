@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --color-primario: #F3363D;
+    --color-secundario: #FFCDB0;
+    --titulos: 4em;
+    --textos: 1.3em;
+    --shadow: -4px 5px 1px rgba(0, 0, 0, 0.5);
+
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body {
+    background-color: var(--color-secundario);
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--color-primario);
+}
+
+#logoBox {
+    display: flex;
+    justify-content: start;
+    padding-left: 8em;
+}
+
+#logoBox img {
+    width: 80px;
+    object-fit: cover;
+}
+
+#navMenuBox {
+    display: flex;
+    list-style: none;
+    color: var(--color-secundario);
+}
+
+#navMenuBox ul {
+    padding: 30px;
+    justify-content: right;
+    display: flex;
+    gap: 2em;
+    flex-direction: row;
+}
+
+
+#navMenuBox li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+}
+
+#navMenuBox li a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    font-size: var(--textos);
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+
+
+
+
+
+#caruselBox {
+    background-color: black;
+    min-height: 100vh;
+}
+
+#quienesSomosBox {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin: 6em auto;
+    width: 90%;
+    max-width: 1200px;
+    padding: 3em;
+    min-height: 80vh;
+    border-radius: 3em;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+
+
+}
+
+.quienesTitulo {
+    text-align: center;
+    font-weight: bold;
+    font-size: var(--titulos);
+    text-shadow: var(--shadow);
+    margin-bottom: 0.2em;
+}
+
+.quienesTexto {
+    text-align: center;
+    font-size: var(--textos);
+    font-weight: lighter;
+}
+
+.equipoTitulo {
+    text-align: center;
+    font-weight: bold;
+    font-size: var(--titulos);
+    text-shadow: var(--shadow);
+    margin-bottom: 0.2em;
+}
+
+.equipoTexto {
+    text-align: center;
+    font-size: var(--textos);
+    font-weight: lighter;
+
+}
+
+
+
+#bodyProyectosBox {
+    background-color: var(--color-primario);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+#proyectosBox {
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    margin: 6em auto;
+    width: 90%;
+    max-width: 1200px;
+    padding: 3em;
+    border-radius: 3em;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+#proyectosBox h1 {
+    text-align: center;
+    justify-content: start;
+    align-items: start;
+    font-weight: bold;
+    font-size: var(--titulos);
+    text-shadow: var(--shadow);
+    margin-bottom: 0.2em;
+}
+
+/* EFECTO DE GALERÍA DIAGONAL */
+.galeriaProyectos {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    /* Esto asegura que las esquinas inclinadas no se salgan del borde principal */
+    border-radius: 15px;
+    /* Bordes redondeados generales */
+    margin-top: 2em;
+}
+
+.imgProyectos {
+    flex: 1;
+    transform: skewX(-15deg);
+    margin: 0 -10px;
+    overflow: hidden;
+    border-left: 4px solid var(--color-secundario);
+}
+
+.imgProyectos.item1 {
+    border-left: none;
+}
+
+.imagenFondo {
+    width: 150%;
+    height: 100%;
+    transform: skewX(15deg);
+    margin-left: -25%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.item1 .imagenFondo {
+    background-image: url(img/Fotografias/1);
+}
+
+.item2 .imagenFondo {
+    background-image: url(img/Fotografias/2)
+}
+
+.item3 .imagenFondo {
+    background-image: url(img/Fotografias/3)
+}
+
+.item4 .imagenFondo {
+    background-image: url(img/Fotografias/4)
+}
+
+/* Un pequeño efecto hover para que se vea premium */
+.imgProyectos:hover .imagenFondo {
+    transform: skewX(15deg) scale(1.1);
+    /* Se acerca un poco al poner el mouse */
+}
+
+
+#serviciosContactoBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: var(--color-primario);
+    padding: 4em 2em;
+    min-height: 100vh;
+    flex-wrap: wrap;
+
+}
+
+
+#serviciosBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 4em;
+}
+
+#contactoBox {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 4em;
+}
+
+.separadorVertical {
+    width: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.seccionTitulo {
+    font-size: var(--titulos);
+    font-weight: bold;
+    text-shadow: var(--shadow);
+    color: var(--color-secundario);
+    margin-bottom: 0.8em;
+    text-align: center;
+}
+
+.servicioCard {
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    border-radius: 25px;
+    padding: 1.5em;
+    margin-bottom: 1.2em;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: -4px 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+.servicioCard h2 {
+    font-size: 1.8em;
+    font-weight: 900;
+}
+
+.servicioCard p {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.contactoCard h2 {
+    margin-top: 0.8em;
+    margin-bottom: 0.2em;
+    font-size: 1.5em;
+}
+
+.contactoCard p {
+    margin-bottom: 1em;
+}
+
+.contactoCard a {
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.contactoCard a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDAD PARA MÓVILES */
+@media (max-width: 768px) {
+    #serviciosContactoBox {
+        flex-direction: column;
+        padding: 3em 1.5em;
+    }
+
+    #serviciosBox {
+        padding-right: 0;
+        margin-bottom: 2em;
+        width: 100%;
+    }
+
+    #contactoBox {
+        padding-left: 0;
+        margin-top: 2em;
+        width: 100%;
+    }
+
+    .separadorVertical {
+        width: 80%;
+        height: 3px;
+        margin: 2em auto;
+    }
+}
