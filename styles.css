@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +13,30 @@
     --color-primario: #F3363D;
     --color-secundario: #FFCDB0;
     --titulos: 4em;
+    --subtitulos: 1.8em;
     --textos: 1.3em;
+    --textosNavMenu: 1em; /* Reducido de 1.2em */
     --shadow: -4px 5px 1px rgba(0, 0, 0, 0.5);
+}
 
+/* Ajuste de fuentes para Tabletas */
+@media (max-width: 1024px) {
+    :root {
+        --titulos: 3em;
+        --subtitulos: 1.5em;
+        --textos: 1.2em;
+        --textosNavMenu: 1.1em;
+    }
+}
+
+/* Ajuste de fuentes para Móviles */
+@media (max-width: 480px) {
+    :root {
+        --titulos: 2.2em;
+        --subtitulos: 1.3em;
+        --textos: 1.1em;
+        --textosNavMenu: 1em;
+    }
 }
 
 /* --- ANIMACIÓN ARAÑA SCROLL --- */
@@ -75,11 +100,22 @@ nav {
 #logoBox {
     display: flex;
     justify-content: start;
-    padding-left: 8em;
+    padding: 0.8em 0 0.8em 4em; /* Reducido un 20% */
+}
+
+#logoBox a {
+    text-decoration: none;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+#logoBox a:hover {
+    transform: scale(1.05);
 }
 
 #logoBox img {
-    width: 80px;
+    width: 60px; /* Reducido de 75px */
+    height: 60px; /* Reducido de 75px */
     object-fit: cover;
 }
 
@@ -90,10 +126,10 @@ nav {
 }
 
 #navMenuBox ul {
-    padding: 30px;
+    padding: 24px; /* Reducido de 30px */
     justify-content: right;
     display: flex;
-    gap: 2em;
+    gap: 1.6em; /* Reducido de 2em */
     flex-direction: row;
 }
 
@@ -108,7 +144,8 @@ nav {
 #navMenuBox li a {
     color: var(--color-secundario);
     text-decoration: none;
-    font-size: var(--textos);
+    font-size: var(--textosNavMenu);
+    text-align: center;
     font-weight: bold;
     margin-bottom: 0.2em;
 }
@@ -303,7 +340,8 @@ nav {
     flex-direction: column;
     align-items: center;
     padding-left: 4em;
-    padding-right: 130px; /* Espacio reservado para que pase la araña */
+    padding-right: 130px;
+    /* Espacio reservado para que pase la araña */
 }
 
 .separadorVertical {
@@ -334,19 +372,19 @@ nav {
 }
 
 .servicioCard h2 {
-    font-size: 1.8em;
+    font-size: var(--subtitulos);
     font-weight: 900;
 }
 
 .servicioCard p {
-    font-size: 1.5em;
+    font-size: var(--textos);
     font-weight: 500;
 }
 
 .contactoCard h2 {
     margin-top: 0.8em;
     margin-bottom: 0.2em;
-    font-size: 1.5em;
+    font-size: var(--subtitulos);
 }
 
 .contactoCard p {
@@ -364,8 +402,106 @@ nav {
     text-decoration: underline;
 }
 
+/* --- ESTILOS MENÚ HAMBURGUESA --- */
+#menuHamburguesa {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1001;
+    margin: auto 2em;
+}
+
+#menuHamburguesa span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-secundario);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* Animación Hamburguesa a X */
+#menuHamburguesa.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+#menuHamburguesa.open span:nth-child(2) {
+    opacity: 0;
+}
+
+#menuHamburguesa.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
 /* RESPONSIVIDAD PARA MÓVILES */
 @media (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5em 0;
+    }
+
+    #logoBox {
+        padding-left: 1em;
+    }
+
+    #menuHamburguesa {
+        display: flex;
+    }
+
+    #navMenuBox {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: var(--color-primario);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 1000;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #navMenuBox.open {
+        transform: translateX(0);
+    }
+
+    #navMenuBox ul {
+        flex-direction: column;
+        gap: 5vh; /* Espaciado fluido basado en el alto de la pantalla */
+        text-align: center;
+        padding: 0;
+    }
+
+    #navMenuBox ul li a {
+        font-size: clamp(1.5rem, 6vw, 2.5rem); /* Texto fluido que se adapta al ancho */
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+        display: block;
+        width: 100%;
+    }
+
+    #navMenuBox ul li a:active {
+        color: white;
+        transform: scale(1.1);
+    }
+
+    #navMenuBox li style {
+        display: none;
+        /* Ocultamos el espacio vacío de la araña en móvil */
+    }
+
+    /* Ocultar el li vacío en móvil */
+    #navMenuBox ul li:last-child {
+        display: none;
+    }
+
     #serviciosContactoBox {
         flex-direction: column;
         padding: 3em 1.5em;
@@ -381,11 +517,53 @@ nav {
         padding-left: 0;
         margin-top: 2em;
         width: 100%;
+        padding-right: 0;
+        /* Quitamos el padding de la araña en móvil */
     }
 
     .separadorVertical {
         width: 80%;
         height: 3px;
         margin: 2em auto;
+    }
+
+    /* GALERÍA DE PROYECTOS EN MÓVIL: APILADO HORIZONTAL */
+    .galeriaProyectos {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+        overflow: visible;
+    }
+
+    .imgProyectos {
+        flex: none;
+        width: 100%;
+        height: 250px;
+        transform: none;
+        margin: 0;
+        border-left: none;
+        border-radius: 20px;
+    }
+
+    .imagenFondo {
+        transform: none;
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+    }
+
+    /* Animación de selección tipo "POP" para móvil */
+    .imgProyectos:active .imagenFondo,
+    .imgProyectos:hover .imagenFondo {
+        transform: none; /* Seguimos sin hacer zoom a la foto interna */
+        filter: none; /* Quitamos el brillo */
+    }
+
+    .imgProyectos:active {
+        transform: scale(1.05); /* Efecto Pop: el cuadro crece ligeramente */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        z-index: 10; /* Se pone por encima de los demás al pulsar */
+        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 }

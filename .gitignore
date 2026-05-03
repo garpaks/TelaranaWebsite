@@ -1,0 +1,9 @@
+# IA Rules
+REGLAS_IA.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
