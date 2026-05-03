@@ -19,16 +19,26 @@
                 <li><a href="#quienesSomosBox">EQUIPO</a></li>
                 <li><a href="#serviciosContactoBox">SERVICIOS</a></li>
                 <li><a href="#contactoBox">LLAMANOS</a></li>
+                <!-- Espacio dedicado para que la araña baje sin tapar -->
+                <li style="width: 130px; pointer-events: none;"></li>
+            </ul>
         </div>
     </nav>
 </header>
 
 <body>
+    <div id="efectoArana">
+        <div id="hiloArana"></div>
+        <img src="img/telarana.png" id="imgTelarana" alt="telaraña">
+        <img src="img/araña.png" id="imgArana" alt="araña">
+    </div>
     <section id="caruselBox">
         <div class="caruselItemsBox">
-            <div id="contenedoPrimarioCarru"></div>
-            <div id="contenedorSecundarioCarru"></div>
-            <div id="slidesContenedor"></div>
+            <div class="slider"></div>
+            <div class="slider"></div>
+            <div class="slider"></div>
+            <div class="slider"></div>
+            <div class="slider"></div>
         </div>
     </section>
     <section id="quienesSomosBox">
@@ -51,10 +61,18 @@
         <section id="proyectosBox">
             <h1>PROYECTOS</h1>
             <div class="galeriaProyectos">
-                <div class="imgProyectos item1"><div class="imagenFondo"></div></div>
-                <div class="imgProyectos item2"><div class="imagenFondo"></div></div>
-                <div class="imgProyectos item3"><div class="imagenFondo"></div></div>
-                <div class="imgProyectos item4"><div class="imagenFondo"></div></div>
+                <div class="imgProyectos item1">
+                    <div class="imagenFondo"></div>
+                </div>
+                <div class="imgProyectos item2">
+                    <div class="imagenFondo"></div>
+                </div>
+                <div class="imgProyectos item3">
+                    <div class="imagenFondo"></div>
+                </div>
+                <div class="imgProyectos item4">
+                    <div class="imagenFondo"></div>
+                </div>
             </div>
         </section>
     </section>
@@ -83,7 +101,7 @@
                     <a href="tel:+524272840632">+52 427 284 0632</a> <br>
                     <a href="tel:+5530458382">55 3045 8382</a>
                 </p>
-                
+
                 <h2>WHATSAPP</h2>
                 <p><a href="https://wa.me/525630016092" target="_blank">56 3001 6092</a></p>
 
@@ -94,5 +112,8 @@
 
     </section>
 </body>
+
+<script src="carrusel.js"></script>
+<script src="animaciones.js"></script>
 
 </html>
